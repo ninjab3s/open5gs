@@ -81,6 +81,8 @@ int app_initialize(const char *const argv[])
      */
     ogs_msleep(500);
 
+    printf("All components started!\n");
+
     return OGS_OK;;
 }
 
