@@ -52,8 +52,7 @@ static void run(int argc, const char *const argv[],
     }
 
     /* buildroot/src/open5gs-main */
-    argv_out[0] = MESON_BUILD_ROOT OGS_DIR_SEPARATOR_S 
-            "src" OGS_DIR_SEPARATOR_S "open5gs-main";
+    argv_out[0] = MESON_BUILD_ROOT OGS_DIR_SEPARATOR_S "open5gs-main";
 
     rv = abts_main(argc_out, argv_out, new_argv);
     ogs_assert(rv == OGS_OK);
@@ -123,9 +122,8 @@ ogs_thread_t *test_child_create(const char *name, const char *const argv[])
     commandLine[i] = NULL;
 
     /* buildroot/src/mme/open5gs-mmed */
-    ogs_snprintf(command, sizeof command, "%s%s%s%sd",
-            MESON_BUILD_ROOT OGS_DIR_SEPARATOR_S "src" OGS_DIR_SEPARATOR_S,
-            name, OGS_DIR_SEPARATOR_S "open5gs-", name);
+    ogs_snprintf(command, sizeof command, "%s%sd",
+            MESON_BUILD_ROOT OGS_DIR_SEPARATOR_S "open5gs-", name);
     commandLine[0] = command;
 
     child = ogs_thread_create(child_main, commandLine);
